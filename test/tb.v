@@ -45,5 +45,14 @@ module tb ();
       .clk    (clk),      // clock
       .rst_n  (rst_n)     // not reset
   );
-
+  
+    // Cocotb will drive the clock; we just declare it here
+    initial begin
+        clk   = 0;
+        rst_n = 1'b0;
+        ena   = 1'b0;
+        ui_in = 8'h00;
+        uio_in= 8'h00;
+        #5; // We wait a little before letting cocotb take over
+    end
 endmodule

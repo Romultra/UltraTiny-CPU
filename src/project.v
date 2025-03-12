@@ -33,7 +33,7 @@ module tt_um_ultra_tiny_cpu (
   //-------------------------------------------------------------------------
   reg [7:0] ACC;    // Accumulator
   reg [7:0] B;      // General-purpose register
-  reg [3:0] PC;     // Program counter
+  reg [2:0] PC;     // Program counter
   reg [7:0] IR;     // Instruction register
 
   //-------------------------------------------------------------------------
@@ -70,7 +70,7 @@ module tt_um_ultra_tiny_cpu (
           // Asynchronous reset
           ACC   <= 8'b0;
           B     <= 8'b0;
-          PC    <= 8'b0;
+          PC    <= 3'b0;
           IR    <= 8'b0;
           acc_out <= 8'b0;
           state <= S_FETCH;
@@ -103,7 +103,7 @@ module tt_um_ultra_tiny_cpu (
               // FETCH: read instruction from memory[PC], increment PC
               //-------------------------------------------------------------
               S_FETCH: begin
-                  IR <= mem[PC[3:0]];
+                  IR <= mem[PC[2:0]];
                   PC <= PC + 1'b1;
                   state <= S_DECODE;
               end
@@ -134,8 +134,8 @@ module tt_um_ultra_tiny_cpu (
               S_WAIT: begin
                   // IR said "LDA #imm" or "LDB #imm"
                   // The next byte in memory is the immediate operand
-                  reg [7:0] imm_data;
-                  imm_data = mem[PC[3:0]];
+                  reg [7:0] imm_data; // this is not optimized
+                  imm_data = mem[PC[2:0]];
                   PC <= PC + 1'b1;
 
                   if (IR[7:4] == 4'h1) begin
@@ -188,13 +188,13 @@ module tt_um_ultra_tiny_cpu (
 
                       4'hB: begin // JMP [4-bit addr]
                           // Jump to low 4 bits => zero-extend to 8 bits
-                          PC <= {4'b0000, IR[3:0]};
+                          PC <= IR[2:0]; 
                       end
 
                       4'hC: begin // BEQ [4-bit addr]
                           // Branch if ACC == 0
                           if (ACC == 8'b0) begin
-                              PC <= {4'b0000, IR[3:0]};
+                              PC <= IR[2:0]; 
                           end
                       end
 

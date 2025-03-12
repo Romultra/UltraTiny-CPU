@@ -33,18 +33,18 @@ module tt_um_ultra_tiny_cpu (
   //-------------------------------------------------------------------------
   reg [7:0] ACC;    // Accumulator
   reg [7:0] B;      // General-purpose register
-  reg [7:0] PC;     // Program counter
+  reg [3:0] PC;     // Program counter
   reg [7:0] IR;     // Instruction register
 
   //-------------------------------------------------------------------------
-  // Tiny Memory (16 bytes)
+  // Tiny Memory (8 bytes)
   //-------------------------------------------------------------------------
-  reg [7:0] mem [0:15];
+  reg [7:0] mem [0:7]; 
   integer i;
   
   // Optional: Initialize memory to zero to avoid 'X' in simulation or hardware
   initial begin
-      for (i = 0; i < 16; i = i + 1)
+      for (i = 0; i < 7; i = i + 1)
           mem[i] = 8'h00;
       // You could hard-code some instructions here as an example:
       // mem[0] = 8'h12; // example instruction, etc.

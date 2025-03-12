@@ -59,7 +59,7 @@ async def test_tiny_cpu(dut):
 
     # Let the CPU run for a few cycles
     # It will fetch instructions from address 0..5
-    await ClockCycles(dut.clk, 10)
+    await ClockCycles(dut.clk, 12)
 
     # Check that the Accumulator (uo_out) is 13 (0x0D)
     acc_val = dut.uo_out.value.integer

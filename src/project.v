@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 Roméo Estezet
+ * Copyright (c) 2025 Roméo Estezet
  * SPDX-License-Identifier: Apache-2.0
  */
 

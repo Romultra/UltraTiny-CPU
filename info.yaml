@@ -22,34 +22,34 @@ project:
 # The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
 pinout:
   # Inputs
-  ui[0]: ""
-  ui[1]: ""
-  ui[2]: ""
-  ui[3]: ""
-  ui[4]: ""
-  ui[5]: ""
-  ui[6]: ""
-  ui[7]: ""
+  ui[0]: "Memory load address bit 0 (when ui[7]=1)"
+  ui[1]: "Memory load address bit 1 (when ui[7]=1)"
+  ui[2]: "Memory load address bit 2 (when ui[7]=1)"
+  ui[3]: "Memory load address bit 3 (when ui[7]=1)"
+  ui[4]: "Unused (available for other custom inputs)"
+  ui[5]: "Unused (available for other custom inputs)"
+  ui[6]: "Unused (available for other custom inputs)"
+  ui[7]: "Load mode enable (1=program load, 0=run)"
 
   # Outputs
-  uo[0]: ""
-  uo[1]: ""
-  uo[2]: ""
-  uo[3]: ""
-  uo[4]: ""
-  uo[5]: ""
-  uo[6]: ""
-  uo[7]: ""
+  uo[0]: "Accumulator output bit 0"
+  uo[1]: "Accumulator output bit 1"
+  uo[2]: "Accumulator output bit 2"
+  uo[3]: "Accumulator output bit 3"
+  uo[4]: "Accumulator output bit 4"
+  uo[5]: "Accumulator output bit 5"
+  uo[6]: "Accumulator output bit 6"
+  uo[7]: "Accumulator output bit 7"
 
   # Bidirectional pins
-  uio[0]: ""
-  uio[1]: ""
-  uio[2]: ""
-  uio[3]: ""
-  uio[4]: ""
-  uio[5]: ""
-  uio[6]: ""
-  uio[7]: ""
+  uio[0]: "Data bus bit 0 for load mode (input), otherwise tri-stated"
+  uio[1]: "Data bus bit 1 for load mode (input), otherwise tri-stated"
+  uio[2]: "Data bus bit 2 for load mode (input), otherwise tri-stated"
+  uio[3]: "Data bus bit 3 for load mode (input), otherwise tri-stated"
+  uio[4]: "Data bus bit 4 for load mode (input), otherwise tri-stated"
+  uio[5]: "Data bus bit 5 for load mode (input), otherwise tri-stated"
+  uio[6]: "Data bus bit 6 for load mode (input), otherwise tri-stated"
+  uio[7]: "Data bus bit 7 for load mode (input), otherwise tri-stated"
 
 # Do not change!
 yaml_version: 6

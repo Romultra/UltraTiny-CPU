@@ -13,14 +13,14 @@ The **UltraTiny-CPU** is a minimal 8-bit CPU with a small instruction set (ALU, 
 
 - **Accumulator (ACC)** as the primary register  
 - **Register B** as a secondary register  
-- **Program Counter (PC)** to fetch instructions from an internal 16-byte memory  
+- **Program Counter (PC)** to fetch instructions from an internal 8-byte memory  
 - **Instruction Register (IR)** to decode the current operation  
 
 The CPU features a “load mode” that writes data or instructions into the memory and a “run mode” that fetches and executes those instructions:
 
 1. **Load Mode**:  
    - Activated when `ui[7] == 1`.  
-   - The address to write is placed on `ui[3:0]`.  
+   - The address to write is placed on `ui[2:0]`.  
    - The data/instruction byte is supplied on `uio[7:0]` and written into memory.
 
 2. **Run Mode**:  
@@ -31,7 +31,7 @@ The CPU features a “load mode” that writes data or instructions into the mem
 ## How to test
 
 1. **Enter Load Mode** (`ui[7] = 1`):  
-   - Provide a memory address (0 to 15) on `ui[3:0]`.  
+   - Provide a memory address (0 to 7) on `ui[2:0]`.  
    - Provide an 8-bit instruction/data on `uio[7:0]`.  
    - Toggle `clk` to store that byte into internal memory.  
    - Repeat for as many instructions/data bytes as needed.
